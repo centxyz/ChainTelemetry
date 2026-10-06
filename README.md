@@ -26,7 +26,7 @@ CryptoPulse is aimed at developers who need a straightforward, dependable soluti
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/harutosati/CryptoPulse.git`
+1. Clone the repository: `git clone https://github.com/centxyz/CryptoPulse.git`
 2. Install required dependencies: `pip install -r requirements.txt`
 
 ## Configuration
@@ -42,4 +42,4 @@ Contributions are welcome and appreciated. Please submit pull requests and issue
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/harutosati/CryptoPulse/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/centxyz/CryptoPulse/blob/main/LICENSE) file for details.
