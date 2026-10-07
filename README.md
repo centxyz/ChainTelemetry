@@ -1,6 +1,6 @@
-# CryptoPulse
+# CandleCurrent
 
-CryptoPulse is a live cryptocurrency market terminal and private browser-based portfolio tracker. It retrieves current market data from CoinGecko, charts seven-day movement, tracks local asset quantities, and calculates current value and approximate daily movement without sending portfolio holdings to a server.
+CandleCurrent is a live cryptocurrency market terminal and private browser-based portfolio tracker. It retrieves current market data from CoinGecko, charts seven-day movement, tracks local asset quantities, and calculates current value and approximate daily movement without sending portfolio holdings to a server.
 
 ## Features
 
@@ -15,13 +15,13 @@ CryptoPulse is a live cryptocurrency market terminal and private browser-based p
 ## Run
 
 ```bash
-git clone https://github.com/centxyz/CryptoPulse.git
-cd CryptoPulse
+git clone https://github.com/centxyz/CandleCurrent.git
+cd CandleCurrent
 npm install
 npm run dev
 ```
 
-CoinGecko's public endpoint may impose rate limits. CryptoPulse surfaces feed errors and preserves local holdings rather than inventing prices.
+CoinGecko's public endpoint may impose rate limits. CandleCurrent surfaces feed errors and preserves local holdings rather than inventing prices.
 
 ## Verify
 
