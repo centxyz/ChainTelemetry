@@ -4,6 +4,10 @@
 
 ChainTelemetry is a live cryptocurrency market terminal and private browser-based portfolio tracker. It retrieves current market data from CoinGecko, charts seven-day movement, tracks local asset quantities, and calculates current value and approximate daily movement without sending portfolio holdings to a server.
 
+[Live demo](https://centxyz.github.io/ChainTelemetry/) · [Source](https://github.com/centxyz/ChainTelemetry)
+
+![ChainTelemetry live market dashboard](docs/chaintelemetry-dashboard.svg)
+
 ## Features
 
 - Live price, 24-hour range, volume, market cap, and 24-hour/7-day change
