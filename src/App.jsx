@@ -4,12 +4,12 @@ import './App.css';
 
 const money = (value, currency) => new Intl.NumberFormat(undefined, { style: 'currency', currency, maximumFractionDigits: Math.abs(value) < 1 ? 6 : 2 }).format(value);
 const compact = (value, currency) => new Intl.NumberFormat(undefined, { style: 'currency', currency, notation: 'compact', maximumFractionDigits: 2 }).format(value);
-const HOLDINGS_KEY = 'candlecurrent:holdings';
+const HOLDINGS_KEY = 'chaintelemetry:holdings';
 
 export default function App() {
   const [currency, setCurrency] = useState('USD');
   const [markets, setMarkets] = useState([]);
-  const [holdings, setHoldings] = useState(() => { try { return JSON.parse(localStorage.getItem(HOLDINGS_KEY) || localStorage.getItem('cryptopulse:holdings')) || {}; } catch { return {}; } });
+  const [holdings, setHoldings] = useState(() => { try { return JSON.parse(localStorage.getItem(HOLDINGS_KEY) || localStorage.getItem('candlecurrent:holdings') || localStorage.getItem('cryptopulse:holdings')) || {}; } catch { return {}; } });
   const [query, setQuery] = useState(''); const [sort, setSort] = useState('marketCap');
   const [state, setState] = useState({ loading: true, error: '', updated: null });
 
@@ -25,7 +25,7 @@ export default function App() {
   const portfolio = useMemo(() => portfolioSummary(markets, holdings), [markets, holdings]);
   const positive = portfolio.dailyChange >= 0;
 
-  return <div className="app"><header><div className="brand"><i />CANDLE<span>CURRENT</span></div><div className="status"><b className={state.error ? 'offline' : ''} />{state.error ? 'FEED INTERRUPTED' : 'LIVE MARKET FEED'}</div><select value={currency} onChange={event => setCurrency(event.target.value)} aria-label="Currency"><option>USD</option><option>CAD</option><option>EUR</option><option>GBP</option></select><button onClick={refresh} disabled={state.loading}>{state.loading ? 'Syncing…' : 'Refresh'}</button></header>
+  return <div className="app"><header><div className="brand"><i />CHAIN<span>TELEMETRY</span></div><div className="status"><b className={state.error ? 'offline' : ''} />{state.error ? 'FEED INTERRUPTED' : 'LIVE MARKET FEED'}</div><select value={currency} onChange={event => setCurrency(event.target.value)} aria-label="Currency"><option>USD</option><option>CAD</option><option>EUR</option><option>GBP</option></select><button onClick={refresh} disabled={state.loading}>{state.loading ? 'Syncing…' : 'Refresh'}</button></header>
     <main><section className="overview"><div><span className="kicker">PERSONAL MARKET TERMINAL</span><h1>Track the market.<br/><em>Know your exposure.</em></h1></div><div className="portfolio"><span>PORTFOLIO VALUE</span><strong>{money(portfolio.total, currency)}</strong><small className={positive ? 'up' : 'down'}>{positive ? '+' : ''}{money(portfolio.dailyChange, currency)} today</small></div></section>
       {state.error && <div className="alert"><span>{state.error}</span><button onClick={refresh}>Try again</button></div>}
       <section className="controls"><input placeholder="Search tracked assets" value={query} onChange={event => setQuery(event.target.value)} /><select value={sort} onChange={event => setSort(event.target.value)} aria-label="Sort markets"><option value="marketCap">Market cap</option><option value="price">Price</option><option value="change24h">24h change</option></select><span>{state.updated ? `Updated ${state.updated.toLocaleTimeString()}` : 'Awaiting first update'}</span></section>
