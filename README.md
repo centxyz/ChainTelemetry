@@ -41,3 +41,9 @@ Only the selected asset identifiers and display currency are sent to CoinGecko. 
 ## License
 
 MIT © cent
+
+## Current limitations
+
+- Market data depends on CoinGecko availability, rate limits, and update timing and is not suitable for trade execution.
+- Portfolio quantities are stored only in the current browser and are not synchronized or backed up automatically.
+- Displayed values are informational estimates, not financial advice or accounting records.
