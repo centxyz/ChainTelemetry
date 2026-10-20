@@ -27,6 +27,8 @@ npm install
 npm run dev
 ```
 
+Open the local URL printed by Vite in your browser. Keep the terminal running while using the app, and press `Ctrl+C` in that terminal to stop the development server.
+
 CoinGecko's public endpoint may impose rate limits. ChainTelemetry surfaces feed errors and preserves local holdings rather than inventing prices.
 
 ## Verify
@@ -41,6 +43,12 @@ Tests cover API normalization, query construction, error handling, portfolio cal
 ## Privacy and disclaimer
 
 Only the selected asset identifiers and display currency are sent to CoinGecko. Portfolio quantities remain in the current browser. Market data can be delayed and is informational, not financial advice.
+
+### Saved holdings
+
+Holdings are saved in this browser's `localStorage`. The local development app and the hosted demo use separate storage, so quantities entered in one will not appear in the other. Other browsers and devices also keep separate holdings.
+
+Clearing this site's browser data removes its saved holdings. Keep a separate record of your quantities before clearing site data or switching browsers; holdings are not backed up automatically.
 
 ## License
 
